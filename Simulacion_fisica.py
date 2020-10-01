@@ -23,10 +23,9 @@ class pendulo():
         self.fuerza_tangencial = math.cos(-self.angulo)*(aceleracion_gravitatoria*self.masa)
         self.acceleracion = self.fuerza_tangencial/self.masa
         self.velocidad_angular += (self.acceleracion/radio)
-        self.angulo = self.angulo - self.velocidad_angular/1000 # el 10000 es para ajustar la velocidad
+        self.angulo = self.angulo - self.velocidad_angular/1000 # el 10000 es para ajustar la velocidad de la simulacion (mas es mas lento)
         if self.angulo > 0:
             print(self.angulo)
-        #self.fuerza_tangencial -= self.velocidad_angular*0.0008   #El 0.0008 es una "resistencia" para paliar el fallo de el calculo
     def draw(self,canvas):
         pygame.draw.circle(canvas,(255,255,255),(500,500),(self.radio))
         pygame.draw.circle(canvas,(255,0,255),(int(math.cos(self.angulo)*self.radio)+500,int(500-math.sin(self.angulo)*self.radio)),(50))
